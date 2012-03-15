@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		List<String> lines = null;
 		try {
-			File file = new File("IntegerArray.txt");
+			File file = new File("IntegerArrayShort.txt");
 			lines = Files.readLines(file, Charsets.UTF_8);
 		} catch (IOException e) {
 			System.out.println(e);
@@ -20,6 +20,8 @@ public class Main {
 			values.add(Integer.parseInt(line));
 		}
 		
-		Algorithm.countInversions(values);
+		//Algorithm.countInversions(values);
+		List<Integer> sorted = Algorithm.mergeSort(values);
+		System.out.println(sorted);
 	}
 }
