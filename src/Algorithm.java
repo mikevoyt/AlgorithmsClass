@@ -7,15 +7,13 @@ public class Algorithm {
 	public static int countInversions(List<Integer> values) {
 		if (values == null) return 0;
 
-		if (values.size() == 2) {
-			return (values.get(0) < values.get(1) ? 0 : 1);
-		}
+		if (values.size() == 0 || values.size() == 1) return 0;
 
 		int half = values.size()/2;
-		if (half == 0 || half == 1) return 0;
-
 		List<Integer> left = values.subList(0, half);
+		//left = mergeSort(left);
 		List<Integer> right = values.subList(half, values.size());
+		//right = mergeSort(right);
 
 		int leftCount = countInversions(left);
 		int rightCount = countInversions(right);
@@ -35,12 +33,12 @@ public class Algorithm {
 			if (leftIndex < leftList.size()) {
 				left = leftList.get(leftIndex);
 			} else {
-				break;
+				break;  //all of right side is larger, no more splits
 			}
 			if (rightIndex < rightList.size()) {
 				right = rightList.get(rightIndex);
 			} else {
-				count += leftList.size()-leftIndex;
+				count += leftList.size()-leftIndex-1;   //all remaining left elements are inversions
 				break;
 			}
 
