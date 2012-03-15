@@ -5,8 +5,8 @@ import java.util.List;
  */
 public class Algorithm {
 	
-	static long inversions = 0;
-	
+	private static long inversions = 0;
+
 	public static long countInversions(List<Integer> values) {
 		inversions = 0;
 		countSortInversions(values);
@@ -27,6 +27,7 @@ public class Algorithm {
 
 		return countSplitInversions(leftSorted, rightSorted);
 	}
+
 
 	private static List<Integer> countSplitInversions(List<Integer> leftList, List<Integer> rightList) {
 		List<Integer> sortedList = new ArrayList<Integer>();

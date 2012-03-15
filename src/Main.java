@@ -2,6 +2,7 @@ import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 
 import java.io.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ public class Main {
 	public static void main(String[] args) {
 		List<String> lines = null;
 		try {
+			//File file = new File("IntegerArrayShort.txt");
 			File file = new File("IntegerArray.txt");
 			lines = Files.readLines(file, Charsets.UTF_8);
 		} catch (IOException e) {
@@ -19,9 +21,16 @@ public class Main {
 		for (String line : lines) {
 			values.add(Integer.parseInt(line));
 		}
-		
+
+		long start = System.currentTimeMillis();
+
 		long inversions = Algorithm.countInversions(values);
+
+		long end = System.currentTimeMillis();
+
 		System.out.println("inversions:" + inversions);
+
+		System.out.println("time:" + (end-start) + "ms");
 
 		//List<Integer> sorted = Algorithm.mergeSort(values);
 		//System.out.println(sorted);
