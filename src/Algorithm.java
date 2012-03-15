@@ -7,11 +7,14 @@ public class Algorithm {
 	
 	static long inversions = 0;
 	
-	public static long getInversions() {
+	public static long countInversions(List<Integer> values) {
+		inversions = 0;
+		countSortInversions(values);
 		return inversions;
 	}
-	
-	public static List<Integer> countInversions(List<Integer> values) {
+
+
+	private static List<Integer> countSortInversions(List<Integer> values) {
 		if (values == null) return null;
 		if (values.size() == 0 || values.size() == 1) return values;
 
@@ -19,8 +22,8 @@ public class Algorithm {
 		List<Integer> left = values.subList(0, half);
 		List<Integer> right = values.subList(half, values.size());
 
-		List<Integer> leftSorted = countInversions(left);
-		List<Integer> rightSorted = countInversions(right);
+		List<Integer> leftSorted = countSortInversions(left);
+		List<Integer> rightSorted = countSortInversions(right);
 
 		return countSplitInversions(leftSorted, rightSorted);
 	}
@@ -55,7 +58,7 @@ public class Algorithm {
 			} else {
 				sortedList.add(right);
 				rightIndex++;
-				inversions += (leftList.size() - leftIndex);
+				inversions += (leftList.size() - leftIndex);  //# of inversions is total remaining in left list
 			}
 		}
 		return sortedList;

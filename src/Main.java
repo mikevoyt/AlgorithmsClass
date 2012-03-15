@@ -20,8 +20,8 @@ public class Main {
 			values.add(Integer.parseInt(line));
 		}
 		
-		Algorithm.countInversions(values);
-		System.out.println("inversions:" + Algorithm.getInversions());
+		long inversions = Algorithm.countInversions(values);
+		System.out.println("inversions:" + inversions);
 
 		//List<Integer> sorted = Algorithm.mergeSort(values);
 		//System.out.println(sorted);
