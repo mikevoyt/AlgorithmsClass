@@ -20,8 +20,9 @@ public class Main {
 			values.add(Integer.parseInt(line));
 		}
 		
-		//Algorithm.countInversions(values);
-		List<Integer> sorted = Algorithm.mergeSort(values);
-		System.out.println(sorted);
+		int count = Algorithm.countInversions(values);
+		System.out.println("count:" + count);
+		//List<Integer> sorted = Algorithm.mergeSort(values);
+		//System.out.println(sorted);
 	}
 }
