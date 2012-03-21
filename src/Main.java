@@ -11,7 +11,7 @@ public class Main {
 		List<String> lines = null;
 		try {
 			//File file = new File("IntegerArrayShort.txt");
-			File file = new File("IntegerArray.txt");
+			File file = new File("QuickSort.txt");
 			lines = Files.readLines(file, Charsets.UTF_8);
 		} catch (IOException e) {
 			System.out.println(e);
@@ -24,15 +24,13 @@ public class Main {
 
 		long start = System.currentTimeMillis();
 
-		long inversions = Algorithm.countInversions(values);
+		List<Integer> sorted = Algorithm.mergeSort(values);
+		System.out.println(sorted);
 
 		long end = System.currentTimeMillis();
 
-		System.out.println("inversions:" + inversions);
 
 		System.out.println("time:" + (end-start) + "ms");
 
-		//List<Integer> sorted = Algorithm.mergeSort(values);
-		//System.out.println(sorted);
 	}
 }
