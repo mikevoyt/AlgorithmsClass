@@ -113,4 +113,26 @@ public class Algorithm {
 		}
 		 return sortedList;
 	}
+
+	public static List<Integer> quickSort(List<Integer> values) {
+        return null;
+	}
+
+    private static void partition(List<Integer> array, int left, int right) {
+        final int pivot = array.get(left);
+        int i = left+1;
+        for (int j = i; j < right; j++) {
+            if (array.get(j) < pivot) {
+                int tmp = array.get(i);
+                array.set(i, array.get(j));
+                array.set(j, tmp);
+                i++;
+            }
+        }
+
+        int tmp = array.get(left);
+        array.set(left, array.get(i-1));
+        array.set(i-1, tmp);
+    }
+
 }
