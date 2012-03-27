@@ -114,12 +114,16 @@ public class Algorithm {
 		 return sortedList;
 	}
 
-	public static List<Integer> quickSort(List<Integer> values) {
-        return null;
+	public static List<Integer> quickSort(List<Integer> values, int left, int right) {
+        if (right - left <= 1) return values;
+        int pivotIndex = partition(values, left, right);
+        quickSort(values, left, pivotIndex);
+        quickSort(values, pivotIndex, right);
+        return values;
 	}
 
-    private static void partition(List<Integer> array, int left, int right) {
-        final int pivot = array.get(left);
+    private static int partition(List<Integer> array, int left, int right) {
+        final int pivot = array.get(left);   //change this to choose different pivot point
         int i = left+1;
         for (int j = i; j < right; j++) {
             if (array.get(j) < pivot) {
@@ -133,6 +137,7 @@ public class Algorithm {
         int tmp = array.get(left);
         array.set(left, array.get(i-1));
         array.set(i-1, tmp);
+        return i;
     }
 
 }

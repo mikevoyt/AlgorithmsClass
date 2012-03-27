@@ -24,13 +24,13 @@ public class Main {
 
 		long start = System.currentTimeMillis();
 
-		List<Integer> sorted = Algorithm.mergeSort(values);
+		List<Integer> sorted = Algorithm.quickSort(values, 0, values.size());
 		System.out.println(sorted);
 
 		long end = System.currentTimeMillis();
 
 
-		System.out.println("time:" + (end-start) + "ms");
+		System.out.println("time:" + (end-start) + " ms");
 
 	}
 }
