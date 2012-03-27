@@ -116,14 +116,15 @@ public class Algorithm {
 
 	public static List<Integer> quickSort(List<Integer> values, int left, int right) {
         if (right - left <= 1) return values;
+        setPivot(PivotType.LAST_ELEMENT, values, left, right);
         int pivotIndex = partition(values, left, right);
-        quickSort(values, left, pivotIndex);
+        quickSort(values, left, pivotIndex-1);
         quickSort(values, pivotIndex, right);
         return values;
 	}
 
     private static int partition(List<Integer> array, int left, int right) {
-        final int pivot = array.get(left);   //change this to choose different pivot point
+        final int pivot = array.get(left);
         int i = left+1;
         for (int j = i; j < right; j++) {
             if (array.get(j) < pivot) {
@@ -138,6 +139,52 @@ public class Algorithm {
         array.set(left, array.get(i-1));
         array.set(i-1, tmp);
         return i;
+    }
+
+    private enum PivotType {
+        FIRST_ELEMENT,
+        LAST_ELEMENT,
+        MEDIAN_OF_THREE
+    }
+
+    private static void setPivot(PivotType type, List<Integer> array, int left, int right) {
+        switch (type) {
+            case FIRST_ELEMENT:
+                return;
+            case LAST_ELEMENT:
+            {
+                //swap last into first
+                int last = array.get(right-1);
+                array.set(right-1, array.get(left));
+                array.set(left, last);
+                return;
+            }
+            case MEDIAN_OF_THREE:
+            {
+                int median = 0;
+                int first = array.get(left);
+                int last = array.get(right-1);
+                int mid = array.get(((right-1)-left)/2);
+                if (first <= last && last <= mid) {
+                    median = last;
+                    array.set(right-1, array.get(left));
+                    array.set(left, median);
+                }
+                else if (last <= mid && mid <= first) {
+                    median = mid;
+                    array.set(((right-1)-left)/2, array.get(left));
+                    array.set(left, median);
+                }
+                else if (mid <= first && first <= mid) {
+                    median = first;
+                    //nothing to do
+                }
+                else throw new RuntimeException("yikes, didn't find median!!");
+
+            }
+            default:
+                return;
+        }
     }
 
 }
