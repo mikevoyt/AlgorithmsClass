@@ -114,12 +114,23 @@ public class Algorithm {
 		 return sortedList;
 	}
 
+
+    private static long comparisons;
+    public static List<Integer> quickSortWrapper(List<Integer> values, int left, int right) {
+        comparisons = 0;
+        List<Integer> ret = quickSort(values, left, right);
+        System.out.println("comparisons: " + comparisons);
+        return ret;
+    }
+    
 	public static List<Integer> quickSort(List<Integer> values, int left, int right) {
         if (right - left <= 1) return values;
         setPivot(PivotType.MEDIAN_OF_THREE, values, left, right);
         int pivotIndex = partition(values, left, right);
         quickSort(values, left, pivotIndex-1);
+        //comparisons += (pivotIndex-1 - left);
         quickSort(values, pivotIndex, right);
+        //comparisons += right - pivotIndex;
         return values;
 	}
 
@@ -127,6 +138,7 @@ public class Algorithm {
         final int pivot = array.get(left);
         int i = left+1;
         for (int j = i; j < right; j++) {
+            comparisons++;
             if (array.get(j) < pivot) {
                 int tmp = array.get(i);
                 array.set(i, array.get(j));

@@ -10,8 +10,8 @@ public class Main {
 	public static void main(String[] args) {
 		List<String> lines = null;
 		try {
-			File file = new File("IntegerArrayShort.txt");
-			//File file = new File("QuickSort.txt");
+			//File file = new File("IntegerArrayShort.txt");
+			File file = new File("QuickSort.txt");
 			lines = Files.readLines(file, Charsets.UTF_8);
 		} catch (IOException e) {
 			System.out.println(e);
@@ -24,7 +24,7 @@ public class Main {
 
 		long start = System.currentTimeMillis();
 
-		List<Integer> sorted = Algorithm.quickSort(values, 0, values.size());
+		List<Integer> sorted = Algorithm.quickSortWrapper(values, 0, values.size());
 		System.out.println(sorted);
 
 		long end = System.currentTimeMillis();
