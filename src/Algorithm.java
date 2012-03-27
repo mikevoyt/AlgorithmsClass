@@ -176,7 +176,7 @@ public class Algorithm {
                 int median = 0;
                 int first = array.get(left);
                 int last = array.get(right-1);
-                int mid = array.get((((right-1)-left)+1)/2);
+                int mid = array.get(left + (((right-1)-left))/2);
                 if ((last <= first && last >= mid) || ((last <= mid && last >= first))) {
                     median = last;
                     array.set(right-1, array.get(left));
@@ -184,7 +184,7 @@ public class Algorithm {
                 }
                 else if ((mid <= last && mid >= first) || ((mid <= first && mid >= last))) {
                     median = mid;
-                    array.set((((right-1)-left)+1)/2, array.get(left));
+                    array.set(left + (((right-1)-left))/2, array.get(left));
                     array.set(left, median);
                 }
                 else if ((first <= last && first >= mid) || ((first <= mid && first >= last))) {
@@ -193,6 +193,9 @@ public class Algorithm {
                 }
                 else throw new RuntimeException("yikes, didn't find median!!");
 
+
+                //System.out.println(array.subList(left, right) + String.format(": first=%d, mid=%d, last=%d, median=%d",
+                //        first, mid, last, median));
                 return;
 
             }
