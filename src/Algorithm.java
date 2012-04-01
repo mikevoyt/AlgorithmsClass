@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  */
@@ -203,5 +204,13 @@ public class Algorithm {
                 return;
         }
     }
+
+	public static Graph randomContraction(Graph graph) {
+		int edgeCount = graph.getEdges().size();
+		Random random = new Random();
+		int randomEdge = random.nextInt(edgeCount);
+
+		return null;
+	}
 
 }

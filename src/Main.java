@@ -58,6 +58,10 @@ public class Main {
 		}
 
 
+		Graph graph = new Graph(mVertices, mEdges);
+
+		Algorithm.randomContraction(graph);
+
 		long end = System.currentTimeMillis();
 
 
