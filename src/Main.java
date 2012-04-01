@@ -25,19 +25,22 @@ public class Main {
 		//first create all verticies
 		for (String line : lines) {
 			Vertex vertex = new Vertex();
-			String[] vals = line.split("\t");
+			line = line.replaceFirst("\\s+", "");
+			String[] vals = line.split("\\s+");
 			String label = vals[0];
 			vertex.setLabel(label);
+			mVertices.add(vertex);
 		}
 
 		//now create all edges, and add edges to vertices
 		for (String line : lines) {
-			String[] vals = line.split("\t");
+			line = line.replaceFirst("\\s+", "");
+			String[] vals = line.split("\\s+");
 			String root = vals[0];
-			Vertex rootVertex = mVertices.get(Integer.parseInt(root));
+			Vertex rootVertex = mVertices.get(Integer.parseInt(root)-1);
 			for (String neighbor: vals) {
 				if (neighbor.equals(root)) continue;
-				Vertex neighborVertex = mVertices.get(Integer.parseInt(neighbor));
+				Vertex neighborVertex = mVertices.get(Integer.parseInt(neighbor)-1);
 
 				//create new edge and set vertices
 				Edge edge = new Edge();
