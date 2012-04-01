@@ -20,5 +20,11 @@ public class Vertex {
 		mEdges.add(edge);
 	}
 
+	public boolean isConnectedTo(Vertex v) {
+		for (Edge edge : mEdges) {
+			if (edge.getHead().equals(v) || edge.getTail().equals(v)) return true;
+		}
+		return false;
+	}
 
 }

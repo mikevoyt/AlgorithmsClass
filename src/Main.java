@@ -41,6 +41,7 @@ public class Main {
 			for (String neighbor: vals) {
 				if (neighbor.equals(root)) continue;
 				Vertex neighborVertex = mVertices.get(Integer.parseInt(neighbor)-1);
+				if (neighborVertex.isConnectedTo(rootVertex)) continue;  //already connected
 
 				//create new edge and set vertices
 				Edge edge = new Edge();
