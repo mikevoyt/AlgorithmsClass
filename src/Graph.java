@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public class Graph {
 	}
 
 	public void setVertices(List<Vertex> vertices) {
-		this.mVertices = vertices;
+		this.mVertices = new ArrayList<Vertex>(vertices);
 	}
 
 	public List<Edge> getEdges() {
@@ -25,7 +26,7 @@ public class Graph {
 	}
 
 	public void setEdges(List<Edge> edges) {
-		this.mEdges = edges;
+		this.mEdges = new ArrayList<Edge>(edges);
 	}
 
 	public void contract(Vertex src, Vertex dest) {
@@ -44,15 +45,18 @@ public class Graph {
 				System.out.println("set edge head between " + srcEdge.getHead().getLabel() + " and " + srcEdge.getTail().getLabel() + " to " + dest.getLabel());
 				srcEdge.setHead(dest);
 			} else if (srcEdge.getTail().equals(src)) {
-				System.out.println("set edge tail from " + srcEdge.getTail().getLabel() + " and " + srcEdge.getHead().getLabel() + " to " + dest.getLabel());
+				System.out.println("set edge tail between " + srcEdge.getTail().getLabel() + " and " + srcEdge.getHead().getLabel() + " to " + dest.getLabel());
 				srcEdge.setTail(dest);
 			} else {
 				System.out.println("Error: can't find this vertex in edge list, not adjacent!!!");
 			}
 
-			if (srcEdge.getHead().equals(srcEdge.getTail())) {
+			if (srcEdge.getHead().getLabel().equals(srcEdge.getTail().getLabel())) {
 				mEdges.remove(srcEdge);
+				dest.removeEdge(srcEdge);
 				System.out.println("removed self-loop at: " + srcEdge.getHead().getLabel());
+			} else {
+				dest.addEdge(srcEdge);
 			}
 		}
 

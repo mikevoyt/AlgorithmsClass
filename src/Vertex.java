@@ -24,6 +24,10 @@ public class Vertex {
 		mEdges.add(edge);
 	}
 
+	public void removeEdge(Edge edge) {
+		mEdges.remove(edge);
+	}
+
 	public boolean isConnectedTo(Vertex dest) {
 		for (Edge edge : mEdges) {
 			if (edge.getHead().equals(dest) || edge.getTail().equals(dest)) return true;
