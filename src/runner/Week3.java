@@ -1,12 +1,16 @@
+package runner;
+
+import graph.Graph;
+
 /**
  *
  */
-public class Week3 {
+public class Week3 implements Runner {
 
 	private void Week3() {
 	}
 
-	public static void run() {
+	public void run() {
 		long min = Integer.MAX_VALUE;
 		long max = Integer.MIN_VALUE;
 		long iterations = 40*40;

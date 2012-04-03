@@ -1,3 +1,5 @@
+package graph;
+
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
 
@@ -42,7 +44,7 @@ public class Graph {
 	}
 
 	/**
-	 * moves all edges connected to this Vertex to dest
+	 * moves all edges connected to this graph.Vertex to dest
 	 * @param dest
 	 */
 	public void moveEdges(Vertex src, Vertex dest) {
