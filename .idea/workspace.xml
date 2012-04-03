@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5cd7fa50-47b2-42ae-9a21-5cf53d6b8e55" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/IntegerArray.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/runner/Runner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/runner/Week1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/runner/Week2.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Algorithm.java" afterPath="$PROJECT_DIR$/src/algorithm/Algorithm.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Edge.java" afterPath="$PROJECT_DIR$/src/graph/Edge.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Graph.java" afterPath="$PROJECT_DIR$/src/graph/Graph.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Vertex.java" afterPath="$PROJECT_DIR$/src/graph/Vertex.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Week3.java" afterPath="$PROJECT_DIR$/src/runner/Week3.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
     <ignored path="AlgorithmsClass.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -125,7 +115,7 @@
       <file leaf-file-name="Week1.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/runner/Week1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="0" selection-start="790" selection-end="790" vertical-scroll-proportion="0.84431136">
+            <state line="36" column="18" selection-start="747" selection-end="747" vertical-scroll-proportion="0.70958084">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#561#570#0" expanded="true" />
@@ -464,7 +454,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="some more cleanup" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -477,6 +467,7 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="some more cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -546,7 +537,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/Week1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="790" selection-end="790" vertical-scroll-proportion="0.84431136">
+        <state line="36" column="18" selection-start="747" selection-end="747" vertical-scroll-proportion="0.70958084">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#561#570#0" expanded="true" />
