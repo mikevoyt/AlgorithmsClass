@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -116,6 +117,21 @@ public class Graph {
 		}
 
 		Graph graph = new Graph(vertices, edges);
+		return graph;
+	}
+
+	public static Graph randomContraction(Graph graph) {
+		int edgeCount = graph.getEdges().size();
+		Random random = new Random();
+		int randomEdgeIndex = random.nextInt(edgeCount);
+		System.out.println("*** picked random edge: " + randomEdgeIndex);
+		Edge randomEdge = graph.getEdges().get(randomEdgeIndex);
+		Vertex head = randomEdge.getHead();
+		Vertex tail = randomEdge.getTail();
+		System.out.println("removing edge between: " + head.getLabel() + " and " + tail.getLabel());
+
+		graph.contract(head, tail);
+
 		return graph;
 	}
 }

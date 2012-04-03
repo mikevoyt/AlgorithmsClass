@@ -205,19 +205,4 @@ public class Algorithm {
         }
     }
 
-	public static Graph randomContraction(Graph graph) {
-		int edgeCount = graph.getEdges().size();
-		Random random = new Random();
-		int randomEdgeIndex = random.nextInt(edgeCount);
-		System.out.println("*** picked random edge: " + randomEdgeIndex);
-		Edge randomEdge = graph.getEdges().get(randomEdgeIndex);
-		Vertex head = randomEdge.getHead();
-		Vertex tail = randomEdge.getTail();
-		System.out.println("removing edge between: " + head.getLabel() + " and " + tail.getLabel());
-
-		graph.contract(head, tail);
-
-		return graph;
-	}
-
 }
