@@ -136,4 +136,51 @@ public class Graph {
 
 		return graph;
 	}
+
+	public static Graph createGraphFromEdges() {
+
+		final int NODE_COUNT = 875714;
+
+		List<String> lines = null;
+		try {
+			File file = new File("resources/SCC.txt");
+			lines = Files.readLines(file, Charsets.UTF_8);
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+
+		List<Vertex> vertices = new ArrayList<Vertex>();
+		List<Edge> edges = new ArrayList<Edge>();
+
+		//first create all verticies
+		for (Integer i=0; i<NODE_COUNT; i++) {
+			Vertex vertex = new Vertex();
+			Integer label = i+1; //our arrays are 0 indexed
+			vertex.setLabel(label.toString());
+			vertices.add(vertex);
+		}
+
+		//now create all edges, and add edges to vertices
+		for (String line : lines) {
+			String[] vals = line.split("\\s+");
+			String tail = vals[0];
+			String head = vals[1];
+			Vertex tailVertex = vertices.get(Integer.parseInt(tail)-1);
+			Vertex headVertex = vertices.get(Integer.parseInt(head)-1);
+
+			Edge edge = new Edge();
+			edge.setHead(headVertex);
+			edge.setTail(tailVertex);
+
+			//add to list of edges (don't think we'll use these)
+			edges.add(edge);
+
+			//link vertices back to new edge
+			tailVertex.addEdge(edge);
+			headVertex.addEdge(edge);
+		}
+
+		Graph graph = new Graph(vertices, edges);
+		return graph;
+	}
 }
