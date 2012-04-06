@@ -137,13 +137,14 @@ public class Graph {
 		return graph;
 	}
 
-	public static Graph createGraphFromEdges() {
+	public static Graph createGraphFromEdges(String filename) {
 
-		final int NODE_COUNT = 875714;
+		//final int NODE_COUNT = 875714;
+		final int NODE_COUNT = 8;
 
 		List<String> lines = null;
 		try {
-			File file = new File("resources/SCC.txt");
+			File file = new File(filename);
 			lines = Files.readLines(file, Charsets.UTF_8);
 		} catch (IOException e) {
 			System.out.println(e);
@@ -182,5 +183,26 @@ public class Graph {
 
 		Graph graph = new Graph(vertices, edges);
 		return graph;
+	}
+
+	/**
+	 * performs depth-first search on graph
+	 * directed graph looks like:  tail->head  (outgoing edges are from tail to head)
+ 	 * @param graph
+	 */
+	public static void DFS(Graph graph, Vertex start, boolean reversed) {
+		start.setExplored(true);
+		System.out.println("DFS exploring " + start.getLabel());
+		for (Edge edge : start.getEdges()) {
+			Vertex head;
+			if (reversed) {
+				head = edge.getTail();
+			} else {
+				head = edge.getHead();
+			}
+			if (head.equals(start)) continue;  //don't traverse if we're not the tail
+
+			if (!head.isExplored()) DFS(graph, head, reversed);
+		}
 	}
 }
