@@ -14,6 +14,22 @@ public class Vertex {
 	private Vertex mLeader;
 	private long mFinishingTime;
 
+	public long getFinishingTime() {
+		return mFinishingTime;
+	}
+
+	public void setFinishingTime(long finishingTime) {
+		this.mFinishingTime = finishingTime;
+	}
+
+	public Vertex getLeader() {
+		return mLeader;
+	}
+
+	public void setLeader(Vertex leader) {
+		this.mLeader = leader;
+	}
+
 	public long getDistance() {
 		return mDistance;
 	}
@@ -57,5 +73,9 @@ public class Vertex {
 		return false;
 	}
 
+	@Override
+	public String toString() {
+		return mLabel + ": leader=" + getLeader().getLabel() + ", finishingTime=" + getFinishingTime();
+	}
 
 }

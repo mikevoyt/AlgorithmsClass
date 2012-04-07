@@ -137,10 +137,14 @@ public class Graph {
 		return graph;
 	}
 
+
+	public static final int NODE_COUNT = 875714;
+	//public static final int NODE_COUNT = 9;
+
 	public static Graph createGraphFromEdges(String filename) {
 
 		//final int NODE_COUNT = 875714;
-		final int NODE_COUNT = 8;
+		//final int NODE_COUNT = 9;
 
 		List<String> lines = null;
 		try {
@@ -153,7 +157,7 @@ public class Graph {
 		List<Vertex> vertices = new ArrayList<Vertex>();
 		List<Edge> edges = new ArrayList<Edge>();
 
-		//first create all verticies
+		//first create all vertices
 		for (Integer i=0; i<NODE_COUNT; i++) {
 			Vertex vertex = new Vertex();
 			Integer label = i+1; //our arrays are 0 indexed
@@ -190,9 +194,13 @@ public class Graph {
 	 * directed graph looks like:  tail->head  (outgoing edges are from tail to head)
  	 * @param graph
 	 */
-	public static void DFS(Graph graph, Vertex start, boolean reversed) {
+
+	static int t = 0;
+
+	public static void DFS(Graph graph, Vertex start, Vertex leader, boolean reversed) {
 		start.setExplored(true);
-		System.out.println("DFS exploring " + start.getLabel());
+		start.setLeader(leader);
+		//System.out.println("DFS exploring " + start.getLabel());
 		for (Edge edge : start.getEdges()) {
 			Vertex head;
 			if (reversed) {
@@ -202,7 +210,9 @@ public class Graph {
 			}
 			if (head.equals(start)) continue;  //don't traverse if we're not the tail
 
-			if (!head.isExplored()) DFS(graph, head, reversed);
+			if (!head.isExplored()) DFS(graph, head, leader, reversed);
 		}
+		t++;
+		start.setFinishingTime(t);
 	}
 }
