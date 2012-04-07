@@ -3,10 +3,7 @@ package runner;
 import graph.Graph;
 import graph.Vertex;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  *
@@ -47,6 +44,7 @@ public class Week4 implements Runner {
 		for (int i = graph.getVertices().size()-1; i >= 0; i--) {
 			Vertex v = graph.getVertices().get(i);
 			v.setExplored(false);
+			v.setLeadingCount(0);
 			int finishingTime = (int)v.getFinishingTime();
 			v.setLabel(String.format("%d", finishingTime));
 			vertices[finishingTime-1] = v;
@@ -65,9 +63,16 @@ public class Week4 implements Runner {
 			}
 		}
 
-		for (Vertex v : graph.getVertices()) {
-			System.out.println(v.toString());
+		Collections.sort(graph.getVertices());
+		Collections.reverse(graph.getVertices());
+
+		for (int i=0; i < 10; i++) {
+			System.out.println(graph.getVertices().get(i));
 		}
+		//for (Vertex v : graph.getVertices()) {
+	//		System.out.println(v.toString());
+//		}
+
 
 	}
 }

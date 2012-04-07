@@ -200,6 +200,7 @@ public class Graph {
 	public static void DFS(Graph graph, Vertex start, Vertex leader, boolean reversed) {
 		start.setExplored(true);
 		start.setLeader(leader);
+		leader.incrementLeadingCount();
 		//System.out.println("DFS exploring " + start.getLabel());
 		for (Edge edge : start.getEdges()) {
 			Vertex head;

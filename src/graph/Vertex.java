@@ -6,13 +6,27 @@ import java.util.List;
 /**
  *
  */
-public class Vertex {
+public class Vertex implements Comparable<Vertex> {
 	private String mLabel;
 	private List<Edge> mEdges = new ArrayList<Edge>();
 	private boolean mExplored = false;
 	private long mDistance = Integer.MAX_VALUE;
 	private Vertex mLeader;
 	private long mFinishingTime;
+	private Long mLeadingCount = new Long(0); //if this vertex is the leader, how many vertex's (including itself) it's leading
+
+
+	public Long getLeadingCount() {
+		return mLeadingCount;
+	}
+
+	public void setLeadingCount(long count) {
+		mLeadingCount = count;
+	}
+
+	public void incrementLeadingCount() {
+		mLeadingCount++;
+	}
 
 	public long getFinishingTime() {
 		return mFinishingTime;
@@ -75,7 +89,10 @@ public class Vertex {
 
 	@Override
 	public String toString() {
-		return mLabel + ": leader=" + getLeader().getLabel() + ", finishingTime=" + getFinishingTime();
+		return mLabel + ": leader=" + getLeader().getLabel() + ", finishingTime=" + getFinishingTime() + ", leadingCount=" + getLeadingCount();
 	}
 
+	public int compareTo(Vertex v) {
+		return getLeadingCount().compareTo(v.getLeadingCount());
+	}
 }
