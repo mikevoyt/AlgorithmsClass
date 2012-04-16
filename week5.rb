@@ -4,7 +4,7 @@
 output_string = ""
 target_sums = [231552, 234756, 596873, 648219, 726312, 981237, 988331, 1277361, 1283379]
 hash = {}
-IO.readlines("assets/HashInt.txt").collect{|str| i=str.strip.to_i; hash[i] = i}
+IO.readlines("resources/HashInt.txt").collect{|str| i=str.strip.to_i; hash[i] = i}
 
 target_sums.each do |target|
   marker = "0" #initialize to 0 (not found)
