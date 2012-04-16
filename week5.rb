@@ -1,3 +1,4 @@
+#Mike Voytovich 4/16/2012
 #Design and Analysis of Algorithms I - Programming Question Week 5
 #for each of the 9 target sums x, whether or not x can be formed as the sum of two entries in the given array
 
